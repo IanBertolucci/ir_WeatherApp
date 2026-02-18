@@ -21,11 +21,13 @@ app.service 'config', ($location) ->
     console.log 'vars.showAirDensity: ', vars.showAirDensity
     console.log 'vars.showPrecipitation: ', vars.showPrecipitation
     console.log 'vars.showTrackWetness: ', vars.showTrackWetness
+    console.log 'vars.bgOpacity: ', vars.bgOpacity
 
     showAirPressure: vars.showAirPressure == 'true'
     showAirDensity: vars.showAirDensity == 'true'
     showPrecipitation: vars.showPrecipitation != 'false'
     showTrackWetness: vars.showTrackWetness != 'false'
+    bgOpacity: vars.bgOpacity || 0.7
 
 app.service 'iRService', ($rootScope) ->
     ir = new IRacing ['TrackWetness', 'Precipitation', 'Skies', 'AirDensity', 'AirPressure'], [], 10
@@ -69,6 +71,9 @@ app.controller 'WeatherCtrl', ($scope, iRService, config) ->
     console.log '$scope.showAirDensity: ', $scope.showAirDensity
     console.log '$scope.showPrecipitation: ', $scope.showPrecipitation
     console.log '$scope.showTrackWetness: ', $scope.showTrackWetness
+    console.log 'config.bgOpacity: ', config.bgOpacity
+
+    document.documentElement.style.setProperty("--theme-bg-color", "hsla(0, 0%, 6%, #{config.bgOpacity})")
 
     window.addEventListener "resize", onResize = () ->
         console.log "resize fired"

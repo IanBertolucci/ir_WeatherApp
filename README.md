@@ -25,22 +25,20 @@ Weather App для Kapps. Сделано на основе [iRacing Browser Apps
 
 Теперь можно открыть оверлей и настроить новый квадратик.
 
-## Дополнительные опции
+## Параметры
 
-Опционально можно добавить параметры в ссылку и вывести дополнительно атмосферное давление с плотностью, которые по-умолчанию выключены.
+Можно добавить параметры в ссылку и вывести дополнительно атмосферное давление с плотностью, которые по-умолчанию выключены.
 В URL в конец добавить "?" и параметр со значение. Можно сразу несколько вписать через "&".
 
 Параметры:
 
-`showAirPressure=true` - давление (влияет на мощность двигателей)
-`showAirDensity=true` - плотность (не знаю на что влияет, но добавил xD )
+`showAirPressure=true` - показать давление (влияет на мощность двигателей)
+`showAirDensity=true` - показать плотность (не знаю на что влияет, но добавил xD )
+`showPrecipitation=false` - спрятать осадки
+`showTrackWetness=false` - спрятать состояние трека
+`bgOpacity=0.5` - прозрачность заднего фона, от 0.0 до 1
 
-Плюс есть опция убрать другие:
-
-`showPrecipitation=false` - осадки
-`showTrackWetness=false` - состояние трека
-
-Пример ссылки с атмосферным давлением и без осадков - 'http://127.0.0.1:8182/WeatherApp/?showAirPressure=true&showPrecipitation=false'
+Пример ссылки с атмосферным давлением и без осадков, задний фон на 0.5 - 'http://127.0.0.1:8182/WeatherApp/?showAirPressure=true&showPrecipitation=false&bgOpacity=0.5'
 
 # Description
 
@@ -74,15 +72,13 @@ Add to URL to the end '?' and parameter with value. You can add multiple variabl
 
 Parameters:
 
-`showAirPressure=true` - pressure (influences engine power)
-`showAirDensity=true` - density (don't know what it does, just added xD )
+`showAirPressure=true` - show pressure (influences engine power)
+`showAirDensity=true` - show density (don't know what it does, just added xD )
+`showPrecipitation=false` - hide precipitation
+`showTrackWetness=false` - hide track condition
+`bgOpacity=0.5` - background opacity, from 0.0 to 1
 
-Additional you can hide other:
-
-`showPrecipitation=false` - precipitation
-`showTrackWetness=false` - track condition
-
-Example of a URL with air pressure and without precipitation - 'http://127.0.0.1:8182/WeatherApp/?showAirPressure=true&showPrecipitation=false'
+Example of a URL with air pressure and without precipitation, bg 0.5 opacity - 'http://127.0.0.1:8182/WeatherApp/?showAirPressure=true&showPrecipitation=false&bgOpacity=0.5'
 
 --------
 P.S Первый раз работал с таким стеком. Не знаком с CoffeeScript и Angular. Но смог из примеров слепить, разобраться и вывести те данные что хотел. Надеюсь ломаться не будет :-)

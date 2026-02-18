@@ -16,6 +16,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Rovlgut" />
     <title>Weather App</title>
+    <base href="/WeatherApp/">
     <!-- angular -->
     <script src="./libs/angular/angular.min.js"></script>
     <!-- coffee -->
@@ -29,14 +30,14 @@
     <div app-is-maximized id="app">
         <div ng-controller="WeatherCtrl" class="app">
             <div class="wrap">
-                <div class="cell">
+                <div ng-if="showTrackWetness" class="cell">
                     <div class="header">Track Wetness</div>
                     <div class="value">
                         <div ng-bind="ir.CustomTrackWetnessStr"></div>
                     </div>
                 </div>
                 
-                <div class="cell">
+                <div ng-if="showPrecipitation" class="cell">
                     <div class="header">Precipitation</div>
                     <div class="value div-inline">
                         <div ng-if="ir.Skies == 0 && ir.Precipitation<0.000001">
@@ -67,6 +68,20 @@
                         <div ng-if="ir.CustomPrecipitationState == 2">
                             <span class="weather-icon-arrow-down icon prec-down"></span>
                         </div>
+                    </div>
+                </div>
+
+                <div ng-if="showAirPressure" class="cell">
+                    <div class="header">Air Pressure</div>
+                    <div class="value">
+                        <div ng-bind="ir.CustomAirPressureStr"></div>
+                    </div>
+                </div>
+                
+                <div ng-if="showAirDensity" class="cell">
+                    <div class="header">Air Density</div>
+                    <div class="value">
+                        <div ng-bind="ir.CustomAirDensityStr"></div>
                     </div>
                 </div>
             </div>

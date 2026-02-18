@@ -25,6 +25,22 @@ Weather App для Kapps. Сделано на основе [iRacing Browser Apps
 
 Теперь можно открыть оверлей и настроить новый квадратик.
 
+## Дополнительные опции
+
+Опционально можно добавить параметры в ссылку и вывести дополнительно атмосферное давление с плотностью, которые по-умолчанию выключены.
+В URL в конец добавить "?" и параметр со значение. Можно сразу несколько вписать через "&".
+
+Параметры:
+
+`showAirPressure=true` - давление (влияет на мощность двигателей)
+`showAirDensity=true` - плотность (не знаю на что влияет, но добавил xD )
+
+Плюс есть опция убрать другие:
+
+`showPrecipitation=false` - осадки
+`showTrackWetness=false` - состояние трека
+
+Пример ссылки с атмосферным давлением и без осадков - 'http://127.0.0.1:8182/WeatherApp/?showAirPressure=true&showPrecipitation=false'
 
 # Description
 
@@ -50,6 +66,23 @@ Precipitation is how much its rains. On start-finish line. My guess its mirrors 
     - URL must be 'http://127.0.0.1:8182/WeatherApp/'
 
 Now you can open overlay in edit new box.
+
+## Options
+
+You can add parameters to url to add air pressure and density, which off by default.
+Add to URL to the end '?' and parameter with value. You can add multiple variables with '&'
+
+Parameters:
+
+`showAirPressure=true` - pressure (influences engine power)
+`showAirDensity=true` - density (don't know what it does, just added xD )
+
+Additional you can hide other:
+
+`showPrecipitation=false` - precipitation
+`showTrackWetness=false` - track condition
+
+Example of a URL with air pressure and without precipitation - 'http://127.0.0.1:8182/WeatherApp/?showAirPressure=true&showPrecipitation=false'
 
 --------
 P.S Первый раз работал с таким стеком. Не знаком с CoffeeScript и Angular. Но смог из примеров слепить, разобраться и вывести те данные что хотел. Надеюсь ломаться не будет :-)

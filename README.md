@@ -13,21 +13,72 @@ Weather App for Kapps. Based on [iRacing Browser Apps ](https://ir-apps.kutu.ru/
 
 Shows track wetness, precipitation, humidity, track state, track temp and air temp.
 
+The track wetness text blinks red when track wetness is going up, and blinks green when track wetness is going down.
+
+![wetness](img/wetness.gif)
+
 # Install
 
-- Make folder that Kapps will make link.
-(Recommend in iRacing document make folder CustomApps, so not to lost it.)
+## 1. Create the Custom Apps folder
 
-- Extract app folder WeatherApp.
-    Should look like: Documents\iRacing\CustomApps\WeatherApp. In WeatherApp should be folders 'libs', 'css' and 'fonts'; files 'app.coffee' and 'index.html'
-    
-- Run Kapps with admin (Kapps need to create symlink). In tab 'App' open 'Settings'. Add folder to 'App Folder'. Need to select folder that in first step (CustomApps). And 'Save'
-    To check if it worked, got to folder `%AppData%\Kapps\iRacingBrowserApps`. There should be shortcut 'apps' that leads to our folder. If not, try close and run Kapps as admin again. Or make it yourself, google will help.
+Create a folder where your iRacing custom apps will live.
 
-- Go to 'Racing Overlay'. Scroll down and 'Add Custom Overlay'. Enter name, url and tick boxes what needed ('not in iRacing' for sure)
-    - Name can be any.
-    - URL must be 'http://127.0.0.1:8182/WeatherApp/'
+Recommended location:
 
-Now you can open overlay in edit new box.
+    %USERPROFILE%\Documents\iRacing\CustomApps
 
-Original author: Rovlgut
+You may choose another location if you prefer.
+
+------------------------------------------------------------------------
+
+## 2. Copy the WeatherApp files
+
+Copy the entire `WeatherApp` folder into your CustomApps folder.
+
+Final structure should look like:
+
+    %USERPROFILE%\Documents\iRacing\CustomApps\WeatherApp
+
+Inside the `WeatherApp` folder you should see:
+
+    libs/
+    css/
+    fonts/
+    app.coffee
+    index.html
+
+------------------------------------------------------------------------
+
+## 3. Add the folder to Kapps
+
+1.  **Start Kapps as Administrator**
+    -   Right-click **Kapps**
+    -   Click **Run as administrator**
+2.  In **Kapps**:
+    -   Go to **App tab → Settings**
+    -   Click **Add App Folder**
+    -   Select your CustomApps folder
+
+------------------------------------------------------------------------
+
+## 5. Add the overlay in Kapps Racing Overlay
+
+1.  Open **Racing Overlay**
+2.  Scroll to the bottom
+3.  Click **Add Custom Overlay**
+
+Configure it as follows:
+
+**Name**
+
+    WeatherApp (or any name)
+
+**URL**
+
+    http://127.0.0.1:8182/WeatherApp/
+
+Tick the options you need.
+
+------------------------------------------------------------------------
+
+Original author: **Rovlgut**

@@ -19,7 +19,9 @@ The track wetness text blinks red when track wetness is going up, and blinks gre
 
 # Install
 
-## 1. Create the Custom Apps folder
+## 1. Download the latest .zip source code from the [releases page](https://github.com/IanBertolucci/ir_WeatherApp/releases).
+
+## 2. Create the Custom Apps folder
 
 Create a folder where your iRacing custom apps will live. I'm creating mine inside the iRacing folder in Documents but you can create it anywhere you want.
 
@@ -27,7 +29,7 @@ Create a folder where your iRacing custom apps will live. I'm creating mine insi
 
 ------------------------------------------------------------------------
 
-## 2. Copy the WeatherApp files
+## 3. Copy the WeatherApp files
 
 Copy the entire `WeatherApp` folder into your CustomApps folder.
 
@@ -45,7 +47,7 @@ Inside the `WeatherApp` folder you should see:
 
 ------------------------------------------------------------------------
 
-## 3. Add the folder to Kapps
+## 4. Add the folder to Kapps
 
 1.  **Start Kapps as Administrator**
     -   Right-click **Kapps**
@@ -57,7 +59,7 @@ Inside the `WeatherApp` folder you should see:
 
 ------------------------------------------------------------------------
 
-## 4. Add the overlay in Kapps Racing Overlay
+## 5. Add the overlay in Kapps Racing Overlay
 
 1.  Open **Racing Overlay**
 2.  Scroll to the bottom

@@ -189,3 +189,21 @@ body>#app>.app {
 .prec-down {
     color: var(--theme-prec-down)
 }
+
+.track-wetness.blink-red {
+    animation: blink-red 1s 7;
+}
+
+.track-wetness.blink-green {
+    animation: blink-green 1s 7;
+}
+
+@keyframes blink-red {
+    0%, 50% { color: red; }
+    50.1%, 100% { color: var(--theme-text-color); }
+}
+
+@keyframes blink-green {
+    0%, 50% { color: green; }
+    50.1%, 100% { color: var(--theme-text-color); }
+}

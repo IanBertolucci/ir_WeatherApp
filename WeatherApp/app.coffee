@@ -36,6 +36,10 @@ app.service 'iRService', ($rootScope) ->
         ir.data.CustomAirTempState = 0
         ir.data.CustomAirTempStr = '0.0°C'
 
+        ir.data.CustomLastTrackWetness = undefined
+        ir.data.CustomTrackWetnessState = 0
+        ir.data.CustomTrackWetnessStr = 'Unknown'
+
         $rootScope.$apply()
         console.log 'connected'
 
@@ -47,13 +51,24 @@ app.service 'iRService', ($rootScope) ->
 
     return ir
 
-app.controller 'WeatherCtrl', ($scope, iRService) ->
+app.controller 'WeatherCtrl', ($scope, iRService, $timeout) ->
     $scope.ir = ir = iRService.data
 
     $scope.$watch 'ir.TrackWetness', onTrackWetness = (w) ->
         
         if w != undefined
+            if ir.CustomLastTrackWetness == undefined
+                ir.CustomLastTrackWetness = w
+            else
+                if w > ir.CustomLastTrackWetness
+                    ir.CustomTrackWetnessState = 1
+                    $timeout (-> ir.CustomTrackWetnessState = 0), 7000
+                else if w < ir.CustomLastTrackWetness
+                    ir.CustomTrackWetnessState = 2
+                    $timeout (-> ir.CustomTrackWetnessState = 0), 7000
+            
             ir.CustomTrackWetnessStr = track_wetness_str[w]
+            ir.CustomLastTrackWetness = w
 
     $scope.$watch 'ir.Precipitation', onPrecipitation = (p) ->
         if p != undefined 
@@ -84,8 +99,18 @@ app.controller 'WeatherCtrl', ($scope, iRService) ->
     $scope.$watch 'ir.SessionInfo.Sessions[0].SessionTrackRubberState', onTrackState = (state) ->
         if state != undefined 
 
+            if ir.CustomLastTrackState == undefined
+                ir.CustomLastTrackState = state
+            else
+                if state > ir.CustomLastTrackState
+                    ir.CustomTrackStateState = 1
+                    $timeout (-> ir.CustomTrackStateState = 0), 1000
+                else if state < ir.CustomLastTrackState
+                    ir.CustomTrackStateState = 2
+                    $timeout (-> ir.CustomTrackStateState = 0), 1000
+            
             ir.CustomTrackStateStr = state
-            ir.CustomTrackStateState = 0
+            ir.CustomLastTrackState = state
 
     $scope.$watch 'ir.TrackTemp', onTrackTemp = (t) ->
         if t != undefined 

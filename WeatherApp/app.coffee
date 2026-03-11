@@ -38,7 +38,6 @@ app.service 'iRService', ($rootScope) ->
 
         $rootScope.$apply()
         console.log 'connected'
-        console.log 'ir: ', ir
 
     ir.onDisconnect = ->
         console.log 'disconnected'
@@ -53,8 +52,7 @@ app.controller 'WeatherCtrl', ($scope, iRService) ->
 
     $scope.$watch 'ir.TrackWetness', onTrackWetness = (w) ->
         
-        console.log 'TrackWetness: ', w
-        if w != undefined 
+        if w != undefined
             ir.CustomTrackWetnessStr = track_wetness_str[w]
 
     $scope.$watch 'ir.Precipitation', onPrecipitation = (p) ->

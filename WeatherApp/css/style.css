@@ -80,7 +80,6 @@ body {
     background-color: var(--theme-bg-color);
     display: inline-block;
     padding: 0.2em;
-    /* allow the overlay box to shrink to its contents */
     width: auto;
     height: auto;
 }
